@@ -10,6 +10,10 @@
     --font-family : "Jockey One", sans-serif;
     --font-weight: 400;
     --font-style: normal;
+    --font-size:32px;
+    --margin: 20px 0;
+    --padding: 10px 30px;
+
 }
 
 
@@ -44,3 +48,29 @@
 }
 
 /* CSS Footer */
+
+h4{
+    padding: var(--padding);
+}
+.policy-text {
+    padding: var(--padding);
+    display: grid;
+    grid-template-columns: 300px 1fr;  
+    grid-gap: 10px;  
+  }
+  
+
+.copy-right{
+    margin: var(--margin);
+    display: flex;
+    justify-content: space-between;
+    .logo-icon {
+        gap: 15px;
+        padding: var(--padding);
+        display: flex;
+        
+    }
+}
+.hero-text{
+    padding: var(--padding);
+}
