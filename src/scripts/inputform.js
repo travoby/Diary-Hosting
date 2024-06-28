@@ -5,12 +5,12 @@ loadFormDataFromLocalStorage();
 
 form.addEventListener("submit", function (textarea){
     textarea.preventDefault();
-    const image = document.querySelector(".images-put").element;
-    const imagesummit = document.querySelector(".image-summit").element;
-    const title = document.querySelector(".title").element;
-    const massage = document.querySelector(".message").element;
-    const date =document.querySelector(".selected_date").element;
-    const summit =document.querySelector(".summit").element;
+    const image = document.querySelector(".images-put").value;
+    const imagesummit = document.querySelector(".image-summit").value;
+    const title = document.querySelector(".title").value;
+    const massage = document.querySelector(".message").value;
+    const date =document.querySelector(".selected_date").value;
+    const summit =document.querySelector(".summit").value;
 
      storeFormDatainLocalStorages(image,imagesummit,title,massage,date,summit);
 console.log('image:', image);
@@ -35,14 +35,28 @@ function loadFormDataFromLocalStorage() {
 const image = localStorage.getItem('image');
 const imagesummit = localStorage.getItem('imagesummit');
 const title = localStorage.getItem('title');
+const massage = localStorage.getItem('massage');
+const date= localStorage.getItem('date');
+const summit = localStorage.getItem('summit');
+
+
 
 if (image) {
-    document.getElementById('image').element = image;
+    document.getElementById('image').value = image;
 }
 if (imagesummit) {
-    document.getElementById('imagesummit').element = imagesummit;
+    document.getElementById('imagesummit').value = imagesummit;
 }
 if (title) {
-    document.getElementById('title').element = title;
+    document.getElementById('title').value = title;
+}
+if (massage) {
+    document.getElementById('massage').value = massage;
+}
+if (date) {
+    document.getElementById('date').value = date;
+}
+if (summit) {
+    document.getElementById('summit').value = summit;
 }
 }
