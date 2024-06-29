@@ -18,17 +18,17 @@
         <form class="image-input" action="/upload" method="post" enctype="multipart/form-data">
             <label for="image">Select Image:</label><br>
             <input type="file" id="image" name="image" accept="image/*"><br><br>
-            <input type="submit" value="Upload">
+            <input  type="submit" class="image-summit" value="Upload">
         </form>
           
         <form  action="/submit" method="post">
             <label for="title">Enter Title:</label><br>
-            <input type="text" id="title" name="title"><br><br>
+            <input class="title" type="text" id="title" name="title"><br><br>
             <label for="message">Enter Your Dairy Here:</label><br>
-            <textarea class="input-text" id="message" name="message" rows="25" cols="160"></textarea><br>
+            <textarea class="message" id="message" name="message" rows="25" cols="160"></textarea><br>
             <label for="selected_date">Select Date:</label>
-            <input type="date" id="selected_date" name="selected_date">
-            <a href="../pages/viewpage.html"><input type="submit" value="Submit"></a>
+            <input class="selected_date" type="date" id="selected_date" name="selected_date">
+            <input  type="submit" class="submit" value="Submit">
         </form>
     </section>
     <hr>
