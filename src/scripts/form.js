@@ -1,4 +1,3 @@
-
 const form = document.querySelector(".input-form");
 
 // Load form data from localStorage when the page loads
@@ -57,9 +56,7 @@ function loadFormDataFromLocalStorage() {
         document.querySelector(".selected_date").value = formData.date || '';
 
     }
-
 }
-
 function storeFormDataInLocalStorage(formData) {
     // Convert the form data object to a JSON string and store it in localStorage
     localStorage.setItem('formData', JSON.stringify(formData));
