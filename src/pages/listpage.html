@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>List</title>
-    <link rel="stylesheet" href="../style/cardlist.css" />
+    <link rel="stylesheet" href="../style/card.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
@@ -13,20 +13,13 @@
 
 <body>
     <navbar-layout class="navbar-layout" ></navbar-layout>
-    <!-- Create Card for List Page -->
-    <div class="card">
-        <img src="../images/Screenshot 2024-06-17 at 6.36.09 in the evening.png" alt=""> <h1>Card Title</h1>
-        <p>This is some descriptive text about the card content.</p>
-        <div class="button-arrow">
-            <a href=""><button>Delete</button></a>
-        <a class="arrow-right" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-        </svg></a>
-        </div>
-    </div>
+    <h2 class="title-list">All Your List</h2>
+    <form-data-component></form-data-component>
+    <br><br>
     <navbar-layout class="footer-layout" ></navbar-layout>
 </body>
 
 <script src="../scripts/navbar.js"></script>
 <script src="../scripts/footer.js"></script>
+<script src="../scripts/card.js"></script>
 </html>
