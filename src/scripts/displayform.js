@@ -82,7 +82,7 @@ class FormDataComponent extends HTMLElement {
           <p>${formData.date}</p>
           <p>${formData.message}</p>
           <div class="button-arrow">
-            <button> Make An Edit </button>
+            <a href="../pages/createpage.html"><button> Make An Edit </button></a>
           </div>
         </div>
       `;
