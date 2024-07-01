@@ -1,0 +1,5 @@
+REVIEWBOARD_URL = "https://review.clp.kr/"
+REPOSITORY = "HexCode/Van-Sopheaktra/Diary-Web"
+REPOSITORY_TYPE = "git"
+BRANCH = "feature/listpage"
+LAND_DEST_BRANCH = "feature/listpage"
