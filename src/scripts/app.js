@@ -59,6 +59,9 @@ export default class App {
                 DiaryStore.deleteNote(noteId);
                 this._refreshNotes();
             },
+            onNoteView: (noteId) => {
+                window.location.href = DiaryStore.getNoteDetailUrl(noteId);
+            }
         };
     }
 }

@@ -1,7 +1,6 @@
 export default class DiaryStore {
     static getAllNotes() {
         const notes = JSON.parse(localStorage.getItem("diary-note") || "[]");
-
         return notes.sort((a, b) => {
             return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
         });
@@ -15,6 +14,7 @@ export default class DiaryStore {
         if (existing) {
             existing.title = noteToSave.title;
             existing.body = noteToSave.body;
+            existing.date = noteToSave.date;
             existing.updated = new Date().toISOString();
         } else {
             noteToSave.id = Math.floor(Math.random() * 10000000);

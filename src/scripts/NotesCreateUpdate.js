@@ -11,8 +11,8 @@ export default class NotesView {
                 <div class="notes__list"></div>
              </div>
             <form class="notes__preview"  action="/submit" method="post">
-                 <label for="title">Enter Title:</label><br>
-                 <input class="notes__title" type="text" id="title" name="title"><br><br>
+                <label for="title">Enter Title:</label><br>
+                <input class="notes__title" type="text" id="title" name="title"><br><br>
                <label for="selected_date">Select Time for This Diary:</label><br>
                 <input type="date" id="selected_date" name="selected_date"><br><br>
                 <label for="message">Enter Your Dairy Here:</label>
@@ -31,11 +31,12 @@ export default class NotesView {
       this.onNoteAdd();
     });
 
-    [inpTitle, inpBody].forEach(inputField => {
+    [inpTitle, inpBody, inpDate].forEach(inputField => {
       inputField.addEventListener("blur", () => {
         const updatedTitle = inpTitle.value.trim();
         const updatedBody = inpBody.value.trim();
-        this.onNoteEdit(updatedTitle, updatedBody);
+        const updatedDate = inpDate.value.trim();
+        this.onNoteEdit(updatedTitle, updatedBody,updatedDate);
       });
     });
 
@@ -62,23 +63,22 @@ export default class NotesView {
     const MAX_BODY_LENGTH = 20;
     const MIN_BODY_LENGTH = 10;
 
-    return `
-                    
-                    <div class="notes__list-item" data-note-id="${id}">
-                        <div class="notes__small-title">
-                        ${title.substring(0, MIN_BODY_LENGTH)}
-                        ${title.length > MIN_BODY_LENGTH ? "..." : ""}
-                        </div>
-                         <p>${date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p><br> 
-                        <div class="notes__small-body">
-                        ${body.substring(0, MAX_BODY_LENGTH)}
-                        ${body.length > MAX_BODY_LENGTH ? "..." : ""}
-                      </div><br>
-                       
-                        <div class="button-arrow">
-                            <button  >Double Click to Delete</button>
-                                <a class="arrow-right" href="../pages/viewpage.html?noteId=${id}">View Detail</a>
-                        </div>
+    return `        
+              <div class="notes__list-item" data-note-id="${id}">
+                  <div class="notes__small-title">
+                  ${title.substring(0, MIN_BODY_LENGTH)}
+                  ${title.length > MIN_BODY_LENGTH ? "..." : ""}
+                  </div>
+                    <p>${date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p><br> 
+                  <div class="notes__small-body">
+                  ${body.substring(0, MAX_BODY_LENGTH)}
+                  ${body.length > MAX_BODY_LENGTH ? "..." : ""}
+                </div><br>
+                  
+                  <div class="button-arrow">
+                      <button >  Double Click to Delete</button>
+                          <a class="arrow-right" href="../pages/viewpage.html"?noteId=${id}>View Detail</a>
+                  </div>
                 </div>
                 `;
   }
