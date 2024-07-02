@@ -1,8 +1,6 @@
-
-
 const form = document.querySelector(".input-form");
 
-// Load form data from localStorage when the page loads
+//Load form data from localStorage when the page loads
 loadFormDataFromLocalStorage();
 
 form.addEventListener("submit", function (event) {
@@ -45,3 +43,6 @@ function storeFormDataInLocalStorage(formData) {
     localStorage.setItem('formData', JSON.stringify(formData));
 }
 
+
+     
+     

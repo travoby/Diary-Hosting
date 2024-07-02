@@ -6,71 +6,55 @@ export default class NotesView {
         this.onNoteEdit = onNoteEdit;
         this.onNoteDelete = onNoteDelete;
         this.root.innerHTML = `
-
-        <form class="image-input" action="/upload" method="post" enctype="multipart/form-data">
-            <label for="image">Select Image:</label><br>
-
-            <input type="file" id="image" name="image" accept="image/*"><br><br>
-            <input type="submit" class="image-summit" value="Upload">
-
-            <label for="title">Enter Title:</label><br>
-            <input class="title" type="text" id="title" name="title"><br><br>
-
-            <label for="message">Enter Your Dairy Here:</label><br>
-            <textarea class="message" id="message" name="message" rows="25" cols="160"></textarea><br>
-
-            <label for="selected_date">Select Date:</label>
-            <input class="selected_date" type="date" id="selected_date" name="selected_date">
-            <input type="submit" class="submit" value="Submit">
-         </form>
+            <div class="notes__sidebar">
+                <button class="notes__add" type="button">Add Dairy</button>
+                <div class="notes__list"></div>
+            </div>
+            <div class="notes__preview">
+                <input class="notes__title" type="text" placeholder="New Dairy...">
+                <textarea class="notes__body">Input Your Diary...</textarea>
+            </div>
         `;
 
-        const image = this.root.querySelector(".image-input");
-        const Title = this.root.querySelector(".title");
-        const message = this.root.querySelector(".message");
-        const date = this.root.querySelector(".selected_date");
-        const summit = this.root.querySelector(".submit");
+        const btnAddNote = this.root.querySelector(".notes__add");
+        const inpTitle = this.root.querySelector(".notes__title");
+        const inpBody = this.root.querySelector(".notes__body");
 
-        summit.addEventListener("click", () => {
+        btnAddNote.addEventListener("click", () => {
             this.onNoteAdd();
         });
 
-        [image, Title,message,date ].forEach(inputField => {
+        [inpTitle, inpBody].forEach(inputField => {
             inputField.addEventListener("blur", () => {
-                const updatedImage= inpImage.value();
                 const updatedTitle = inpTitle.value.trim();
                 const updatedBody = inpBody.value.trim();
-                const updatedDate = inpDate.value();
 
-                this.onNoteEdit(updatedImage,updatedTitle, updatedBody,updatedDate);
+                this.onNoteEdit(updatedTitle, updatedBody);
             });
         });
 
         this.updateNotePreviewVisibility(false);
     }
 
-    _createListItemHTML(id,image, title,date, body, updated) {
+    _createListItemHTML(id, title, body, updated) {
         const MAX_BODY_LENGTH = 60;
 
         return `
-           
-            <div class="card" data-note-id="${id}">
-          <img src="${image}" alt="">
-          <h1>${title}</h1>
-          <p>${date}</p>
-          <p>${message}</p>
-          <div class="button-arrow">
-            <a href=""><button>Delete</button></a>
-            <a class="arrow-right" href="../pages/viewpage.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-            </svg></a>
-          </div>
-        </div>
+            <div class="notes__list-item" data-note-id="${id}">
+                <div class="notes__small-title">${title}</div>
+                <div class="notes__small-body">
+                    ${body.substring(0, MAX_BODY_LENGTH)}
+                    ${body.length > MAX_BODY_LENGTH ? "..." : ""}
+                </div>
+                <div class="notes__small-updated">
+                    ${updated.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}
+                </div>
+            </div>
         `;
     }
 
     updateNoteList(notes) {
-        const notesListContainer = this.root.querySelector(".submit");
+        const notesListContainer = this.root.querySelector(".notes__list");
 
         // Empty list
         notesListContainer.innerHTML = "";
@@ -82,7 +66,7 @@ export default class NotesView {
         }
 
         // Add select/delete events for each list item
-        notesListContainer.querySelectorAll(".card").forEach(noteListItem => {
+        notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.addEventListener("click", () => {
                 this.onNoteSelect(noteListItem.dataset.noteId);
             });
@@ -98,13 +82,17 @@ export default class NotesView {
     }
 
     updateActiveNote(note) {
-        this.root.querySelector(".title").value = note.title;
-        this.root.querySelector(".message").value = note.body;
+        this.root.querySelector(".notes__title").value = note.title;
+        this.root.querySelector(".notes__body").value = note.body;
 
-        this.root.querySelectorAll(".card").forEach(noteListItem => {
+        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.classList.remove("notes__list-item--selected");
         });
 
-        this.root.querySelector(`.card[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected");
+        this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected");
+    }
+
+    updateNotePreviewVisibility(visible) {
+        this.root.querySelector(".notes__preview").style.visibility = visible ? "visible" : "hidden";
     }
 }
