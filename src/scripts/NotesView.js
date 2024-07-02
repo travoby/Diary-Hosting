@@ -7,18 +7,18 @@ export default class NotesView {
         this.onNoteDelete = onNoteDelete;
         this.root.innerHTML = `
             <div class="notes__sidebar">
-                <button class="diary-add" type="button">Add Dairy</button>
-                <div class="diary_list"></div>
+                <button class="notes__add" type="button">Add Dairy</button>
+                <div class="notes__list"></div>
             </div>
-            <div class="diary_preview">
-                <input class="diary_title" type="text" placeholder="New Dairy...">
-                <textarea class="diary_message">Input Your Diary...</textarea>
+            <div class="notes__preview">
+                <input class="notes__title" type="text" placeholder="New Dairy...">
+                <textarea class="notes__body">Input Your Diary...</textarea>
             </div>
         `;
 
-        const btnAddNote = this.root.querySelector(".diary-add");
-        const inpTitle = this.root.querySelector(".diary_title");
-        const inpBody = this.root.querySelector(".diary_message");
+        const btnAddNote = this.root.querySelector(".notes__add");
+        const inpTitle = this.root.querySelector(".notes__title");
+        const inpBody = this.root.querySelector(".notes__body");
 
         btnAddNote.addEventListener("click", () => {
             this.onNoteAdd();
@@ -40,7 +40,7 @@ export default class NotesView {
         const MAX_BODY_LENGTH = 60;
 
         return `
-            <div class="diary_list-item" data-note-id="${id}">
+            <div class="notes__list-item" data-note-id="${id}">
                 <div class="notes__small-title">${title}</div>
                 <div class="notes__small-body">
                     ${body.substring(0, MAX_BODY_LENGTH)}
@@ -54,7 +54,7 @@ export default class NotesView {
     }
 
     updateNoteList(notes) {
-        const notesListContainer = this.root.querySelector(".diary_list");
+        const notesListContainer = this.root.querySelector(".notes__list");
 
         // Empty list
         notesListContainer.innerHTML = "";
@@ -66,7 +66,7 @@ export default class NotesView {
         }
 
         // Add select/delete events for each list item
-        notesListContainer.querySelectorAll(".diary-list-item").forEach(noteListItem => {
+        notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.addEventListener("click", () => {
                 this.onNoteSelect(noteListItem.dataset.noteId);
             });
@@ -82,17 +82,17 @@ export default class NotesView {
     }
 
     updateActiveNote(note) {
-        this.root.querySelector(".diary_title").value = note.title;
-        this.root.querySelector(".diary_message").value = note.body;
+        this.root.querySelector(".notes__title").value = note.title;
+        this.root.querySelector(".notes__body").value = note.body;
 
-        this.root.querySelectorAll(".diary-list-item").forEach(noteListItem => {
-            noteListItem.classList.remove("diary-list-item--selected");
+        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {
+            noteListItem.classList.remove("notes__list-item--selected");
         });
 
-        this.root.querySelector(`.diary-list-item[data-note-id="${note.id}"]`).classList.add("diary-list-item--selected");
+        this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected");
     }
 
     updateNotePreviewVisibility(visible) {
-        this.root.querySelector(".diary_preview").style.visibility = visible ? "visible" : "hidden";
+        this.root.querySelector(".notes__preview").style.visibility = visible ? "visible" : "hidden";
     }
 }
