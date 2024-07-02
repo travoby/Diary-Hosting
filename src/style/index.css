@@ -10,6 +10,10 @@
     --font-family : "Jockey One", sans-serif;
     --font-weight: 400;
     --font-style: normal;
+    --font-size:32px;
+    --margin: 20px 0;
+    --padding: 10px 30px;
+
 }
 
 
@@ -25,8 +29,6 @@
     a {
         text-decoration: none;
       }
-    
-   
 }
 .navbar-li{
     display: flex;
@@ -44,3 +46,56 @@
 }
 
 /* CSS Footer */
+
+h4{
+    padding: var(--padding);
+}
+.policy-text {
+    padding: var(--padding);
+    display: grid;
+    grid-template-columns: 300px 1fr;  
+    grid-gap: 10px;  
+  }
+  
+
+.copy-right{
+    margin: var(--margin);
+    display: flex;
+    justify-content: space-between;
+    .logo-icon {
+        gap: 15px;
+        padding: var(--padding);
+        display: flex;
+        
+    }
+}
+/* Hero text */
+.hero-text{
+    padding: var(--padding);
+}
+/* Card in index page */
+.card-img {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .card-container {
+    position: relative;
+    width: 850px;
+    height: 500px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  }
+  
+  .card-button {
+    position: absolute;
+    bottom: 16px;
+    left: 45%;
+    background-color: #9a6363;
+    padding: 8px 8px;
+    border-radius: 8px;
+    color: aliceblue;
+  }
