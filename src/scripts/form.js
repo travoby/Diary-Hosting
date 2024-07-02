@@ -24,7 +24,7 @@ form.addEventListener("submit", function (event) {
     // Optional: Log form data for debugging purposes
     console.log('Form Data:', formData);
 });
-
+ 
 function loadFormDataFromLocalStorage() {
     // Retrieve and parse the form data from localStorage
     const formData = JSON.parse(localStorage.getItem('formData'));

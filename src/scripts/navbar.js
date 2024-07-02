@@ -4,4 +4,4 @@ fetch("../layout/navbar.html")
 .then((data) => {
   navbar.innerHTML = data;
 })
-.catch((error) => console.error("Error fetching included file:", error));
+.catch((error) => console.error("Error fetching included file:", error)); 
