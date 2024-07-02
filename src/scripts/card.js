@@ -75,6 +75,7 @@ class FormDataComponent extends HTMLElement {
             </svg></a>
           </div>
         </div>
+        
       `;
       this.shadowRoot.innerHTML = template;
     }
