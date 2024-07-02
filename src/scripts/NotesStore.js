@@ -1,4 +1,4 @@
-export default class NotesAPI {
+export default class DiaryStore {
     static getAllNotes() {
         const notes = JSON.parse(localStorage.getItem("diary-note") || "[]");
 
@@ -8,7 +8,7 @@ export default class NotesAPI {
     }
 
     static saveNote(noteToSave) {
-        const notes = NotesAPI.getAllNotes();
+        const notes = DiaryStore.getAllNotes();
         const existing = notes.find(note => note.id == noteToSave.id);
 
         // Edit/Update
@@ -17,7 +17,7 @@ export default class NotesAPI {
             existing.body = noteToSave.body;
             existing.updated = new Date().toISOString();
         } else {
-            noteToSave.id = Math.floor(Math.random() * 1000000);
+            noteToSave.id = Math.floor(Math.random() * 10000000);
             noteToSave.updated = new Date().toISOString();
             notes.push(noteToSave);
         }
@@ -26,7 +26,7 @@ export default class NotesAPI {
     } 
 
     static deleteNote(id) {
-        const notes = NotesAPI.getAllNotes();
+        const notes = DiaryStore.getAllNotes();
         const newNotes = notes.filter(note => note.id != id);
 
         localStorage.setItem("diary-note", JSON.stringify(newNotes));

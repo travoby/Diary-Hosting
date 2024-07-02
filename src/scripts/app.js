@@ -1,5 +1,5 @@
-import NotesView from "./NotesView.js";
-import NotesAPI from "./NotesAPI.js";
+import NotesView from "./NotesCreateUpdate.js";
+import DiaryStore from "./NotesStore.js";
 
 export default class App {
     constructor(root) { 
@@ -11,7 +11,7 @@ export default class App {
     }
 
     _refreshNotes() {
-        const notes = NotesAPI.getAllNotes();
+        const notes = DiaryStore.getAllNotes();
 
         this._setNotes(notes);
 
@@ -39,15 +39,15 @@ export default class App {
             },
             onNoteAdd: () => {
                 const newNote = {
-                    title: "New Diary",
-                    body: "Take dairy..."
+                    title: "Sample Note Please Clear !!",
+                    body: " "
                 };
 
-                NotesAPI.saveNote(newNote);
+                DiaryStore.saveNote(newNote);
                 this._refreshNotes();
             },
             onNoteEdit: (title, body) => {
-                NotesAPI.saveNote({
+                DiaryStore.saveNote({
                     id: this.activeNote.id,
                     title,
                     body
@@ -56,7 +56,7 @@ export default class App {
                 this._refreshNotes();
             },
             onNoteDelete: noteId => {
-                NotesAPI.deleteNote(noteId);
+                DiaryStore.deleteNote(noteId);
                 this._refreshNotes();
             },
         };
