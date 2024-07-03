@@ -1,10 +1,10 @@
-/* .title-list{
+.title-list{
   font-family: "Jockey One", sans-serif;
   padding: 10px 30px;
 }
 .card {
     width: 400px;
-    height: 400px;
+    height: 200px;
     background-color: #fff; 
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -48,5 +48,5 @@
           display:flex;
           justify-content: center;
       }
-  } */
+  } 
 
