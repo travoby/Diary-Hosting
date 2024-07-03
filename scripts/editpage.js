@@ -18,8 +18,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-document
-  .getElementById("diary-update")
+document.getElementById("diary-update")
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -35,6 +34,9 @@ document
       entries[index].date = date;
       localStorage.setItem("diaryEntries", JSON.stringify(entries));
       window.location.href = `../pages/viewpage.html?id=${id}&title=${title}&date=${date}&content=${message}`;
-      form.reset();
+      editEntry.reset();
     }
   });
+
+
+  

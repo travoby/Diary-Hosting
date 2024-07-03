@@ -7,6 +7,7 @@ document.getElementById("entry-title").textContent = urlParams.get("title");
 document.getElementById("entry-date").textContent = urlParams.get("date");
 document.getElementById("entry-content").textContent = urlParams.get("content");
 
+
 const editButton = document.getElementById("editButton");
 editButton.addEventListener("click", goToEditPage);
 

@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Diary Entry</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="../style/edit.css">
 </head>
 
 <body>
   <div class="container">
-    <h1>Edit Diary Entry</h1>
+    <h1>Edit Your Diary</h1>
     <form id="diary-update" action="/upload" method="post" enctype="multipart/form-data">
       <input type="hidden" id="entry-id" name="entry-id">
       <label for="title">Enter Title:</label><br>
@@ -19,7 +19,7 @@
       <textarea class="input-text" id="message-update" name="message" rows="25" cols="160" required></textarea><br>
       <label for="selected_date">Select Date:</label>
       <input type="date" id="selected-date-update" name="selected_date" required>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Update">
     </form>
 
   </div>

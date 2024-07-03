@@ -33,6 +33,12 @@ form.addEventListener("submit", (event) => {
   countId++; // Increment input count when user input other note
 });
 
+// loop to display all the entries from local storage
+entries.forEach((input) => {
+  // render all the entries according to the current amount of input
+  displayInput(input);
+});
+
 // the diary note layout
 function displayInput(input) {
   const inputElement = document.createElement("div");
@@ -42,8 +48,8 @@ function displayInput(input) {
     <div class="card">
           <h1>${input.title}</h1>
           <p>${input.date}</p>
-          <p>${input.content.slice(0, 40)}${
-    input.content.length > 40 ? "..." : ""
+          <p>${input.content.slice(0, 100)}${
+    input.content.length > 100 ? "..." : ""
   }</p>
           <div class="button-arrow">
             <a href="#" onclick="deleteInput('${
@@ -62,12 +68,6 @@ function displayInput(input) {
     `;
   document.body.appendChild(inputElement);
 }
-
-// loop to display all the entries from local storage
-entries.forEach((input) => {
-  // render all the entries according to the current amount of input
-  displayInput(input);
-});
 
 //Create Function Delete to Delete card
 function deleteInput(id) {
