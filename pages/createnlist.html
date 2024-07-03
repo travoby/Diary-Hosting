@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create</title>
-    <link rel="stylesheet" href="../style/createform.css" />
     <link rel="stylesheet" href="../style/card.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +13,13 @@
 <body>
   <navbar-layout class="navbar-layout"></navbar-layout>
   <h1>My Diary</h1>
-    <form id="diary-form" action="/upload" method="post" enctype="multipart/form-data">
+    <form id="diary-form" action="/upload" method="post" enctype="multipart/form-data" >
       <label for="title">Enter Title:</label><br>
-      <input class="title" type="text" id="title" name="title"><br><br>
+      <input class="title" type="text" id="title" name="title" required><br><br>
       <label for="message">Enter Your Dairy Here:</label><br>
-      <textarea class="input-text" id="message" name="message" rows="25" cols="160"></textarea><br>
+      <textarea class="input-text" id="message" name="message" rows="25" cols="160" required></textarea><br>
       <label for="selected_date">Select Date:</label>
-      <input type="date" id="selected_date" name="selected_date">
+      <input type="date" id="selected_date" name="selected_date" required>
       <input type="submit" value="Submit">
   </form>
 

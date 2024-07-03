@@ -1,0 +1,16 @@
+.view-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    button{
+        align-items: center;
+    }
+
+  }
+  
+  .view-detail h1,
+  .view-detail p {
+    text-align: center;
+  }

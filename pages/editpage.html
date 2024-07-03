@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Diary Entry</title>
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Edit Diary Entry</h1>
+    <form id="diary-update" action="/upload" method="post" enctype="multipart/form-data">
+      <input type="hidden" id="entry-id" name="entry-id">
+      <label for="title">Enter Title:</label><br>
+      <input class="title" type="text" id="title-update" name="title" required><br><br>
+      <label for="message">Enter Your Diary Here:</label><br>
+      <textarea class="input-text" id="message-update" name="message" rows="25" cols="160" required></textarea><br>
+      <label for="selected_date">Select Date:</label>
+      <input type="date" id="selected-date-update" name="selected_date" required>
+      <input type="submit" value="Submit">
+    </form>
+
+  </div>
+</body>
+<script src="../scripts/editpage.js"></script>
+
+</html>
