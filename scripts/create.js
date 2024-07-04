@@ -1,5 +1,5 @@
 const form = document.getElementById("diary-form");
-const entries = JSON.parse(localStorage.getItem("diaryEntries")) || [];
+const store = JSON.parse(localStorage.getItem("diaryStore")) || [];
 let countId = 0; // Initialize input count
 
 // AddEvenListener to the Form
@@ -20,10 +20,10 @@ form.addEventListener("submit", (event) => {
   };
 
   // add new obj to the local storage
-  entries.push(newInput);
+  store.push(newInput);
 
   // set the new array to the local storage
-  localStorage.setItem("diaryEntries", JSON.stringify(entries));
+  localStorage.setItem("diaryStore", JSON.stringify(store));
 
   //Display All new Inputs
   displayInput(newInput);
@@ -33,9 +33,9 @@ form.addEventListener("submit", (event) => {
   countId++; // Increment input count when user input other note
 });
 
-// loop to display all the entries from local storage
-entries.forEach((input) => {
-  // render all the entries according to the current amount of input
+// loop to display all the store from local storage
+store.forEach((input) => {
+  // render all the store according to the current amount of input
   displayInput(input);
 });
 
@@ -70,9 +70,9 @@ function deleteInput(id) {
   inputElement.remove();
 
   // Access to the id to be deleted
-  const inputIndex = entries.findIndex((input) => input.id === id);
+  const inputIndex = store.findIndex((input) => input.id === id);
   if (inputIndex !== -1) {
-    entries.splice(inputIndex, 1);
-    localStorage.setItem("diaryEntries", JSON.stringify(entries));
+    store.splice(inputIndex, 1);
+    localStorage.setItem("diaryStore", JSON.stringify(store));
   }
 }
