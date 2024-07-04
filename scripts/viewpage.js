@@ -1,6 +1,6 @@
 // Retrieve the query parameters from the URL
 const urlParams = new URLSearchParams(window.location.search);
-const entryId = urlParams.get("id");
+const storeId = urlParams.get("id");
 
 // Display the view details
 document.getElementById("entry-title").textContent = urlParams.get("title");
@@ -12,5 +12,5 @@ const editButton = document.getElementById("editButton");
 editButton.addEventListener("click", goToEditPage);
 
 function goToEditPage() {
-  window.location.href = `../pages/editpage.html?id=${entryId}`;
+  window.location.href = `../pages/editpage.html?id=${storeId}`;
 }

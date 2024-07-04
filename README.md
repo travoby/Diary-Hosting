@@ -1,93 +1,128 @@
 # Diary-Web-SopheaktraVan
+The main objective of this project is to create the user interface, features, and content of Dairy Application  while customizing certain elements to meet the requirements of the website using CRUD ( create Read Update Delete).
 
 
+# Table of Contents
 
-## Getting started
+- [Project Overview](#project-overview)
+- [How to Use](#use)
+- [Technologies Used](#technologies-used)
+- [Style Guide](#style-guide)
+- [Gitflow Process](#Gitflow-Process)
+- [Contact](#contact)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+# Project Overview
+    This project includes the following 4 created pages :
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+1. Home Page / Landing Page
+2. List & Create Page
+3. View Page
+4. Edit Page
+** Link to Deploy ** - [Deploy Link](https://sopheaktra-diary-hosting.vercel.app/)
 
-## Add your files
+# How to Use
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+1. Clone the repository:
+    ```bash
+    git clone https://git.clp.kr/anbschool/2nd/hexcode/van-sopheaktra/diary-web-sopheaktravan.git 
+    ```
 
+2. Navigate to the project directory:
+    ```bash
+    cd diary-web-sopheaktravan
+    ```
+
+3. Open the `index.html` file in your browser to view the project.
+
+
+# Technology Used
+-HTML
+-JavaScript
+-CSS
+-Crud
+
+Link To [Diary Notion Note](https://turquoise-soarer-c54.notion.site/Van-Sopheaktra-Note-64227780b1b74ad8a6e0174324096784)
+
+# Style Guide
+
+In Convention We have at Style Guide. You can See it detail in here :
+Link to [Convention](https://turquoise-soarer-c54.notion.site/2nd-Project-Diary-Convention-4d0baa94e92844c09a602f564fc38ee8?pvs=4)
+
+
+# Gitflow  Process
+
+### Main Branches
+
+1. **master (main)**:
+    - This branch contains production-ready code.
+    - Only merged from release branches.
+2. **develop**:
+    - This branch contains the latest development changes for the next release.
+    - Features and bug fixes are merged here before being released.
+
+### Supporting Branches
+
+1. **feature**:
+    - Used for developing new features.
+    - Branches off from `develop` and merges back into `develop`.
+    - Naming convention: `feature/feature-name`.
+2. **release**:
+    - Prepares code for a new production release.
+    - Branches off from `develop` and merges into both `master` and `develop`.
+    - Naming convention: `release/release-name`.
+3. **hotfix**:
+    - Fixes for urgent bugs in the production code.
+    - Branches off from `master` and merges into both `master` and `develop`.
+    - Naming convention: `hotfix/hotfix-name`.
+## Steps for Gitflow
+
+### 1. Initialize Gitflow
+
+First, you need to initialize the Gitflow structure in your repository:
+
+```bash
+git flow init
 ```
-cd existing_repo
-git remote add origin https://git.clp.kr/anbschool/2nd/hexcode/van-sopheaktra/diary-web-sopheaktravan.git
-git branch -M main
-git push -uf origin main
+
+### 2. Feature Branch
+
+When you start a new feature:
+
+```bash
+git flow feature start feature-name
 ```
 
-## Integrate with your tools
+Develop the feature, commit changes, and when done:
 
-- [ ] [Set up project integrations](https://git.clp.kr/anbschool/2nd/hexcode/van-sopheaktra/diary-web-sopheaktravan/-/settings/integrations)
+```bash
+git flow feature finish feature-name
+```
 
-## Collaborate with your team
+### 3. Release Branch
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+When preparing for a release:
 
-## Test and Deploy
+```bash
+git flow release start release-name
+```
 
-Use the built-in continuous integration in GitLab.
+Prepare the release, update version numbers, etc., and when done:
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+```bash
+git flow release finish release-name
+```
 
-***
+### 4. Hotfix Branch
 
-# Editing this README
+For urgent fixes on production:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+```bash
+git flow hotfix start hotfix-name
+```
 
-## Suggestions for a good README
+Fix the issue, commit changes, and when done:
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Contact
+For any questions, feel free to contact me:
+- **Van Sopheaktra** - [sopheak1013@gmail.com](mailto:sopheak1013@gmail.com)
+- GitLab: [@travoby_7](https://git.clp.kr/travoby_7)
