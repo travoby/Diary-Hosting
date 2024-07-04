@@ -27,11 +27,11 @@ document.getElementById("diary-update")
     const message = document.getElementById("message-update").value;
     const date = document.getElementById("selected-date-update").value;
 
-    const index = entries.findIndex((entry) => entry.id === id);
-    if (index !== -1) {
-      entries[index].title = title;
-      entries[index].content = message;
-      entries[index].date = date;
+    const indexCard = entries.findIndex((entry) => entry.id === id);
+    if (indexCard !== -1) {
+      entries[indexCard].title = title;
+      entries[indexCard].content = message;
+      entries[indexCard].date = date;
       localStorage.setItem("diaryEntries", JSON.stringify(entries));
       window.location.href = `../pages/viewpage.html?id=${id}&title=${title}&date=${date}&content=${message}`;
       editEntry.reset();
