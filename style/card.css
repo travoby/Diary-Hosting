@@ -1,0 +1,110 @@
+.title-list{
+  font-family: "Jockey One", sans-serif;
+  padding: 10px 30px;
+}
+
+.form-input {
+  margin: 20px auto;
+  padding: 10px 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  font-family: var(--font-family);
+}
+ 
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.input-text{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="submit"] {
+  background-color: #9a6363;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="submit"]:hover{
+  background-color:#e35656;
+
+}
+
+/* Container for all cards */
+.all-card {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; 
+  gap: 20px;            
+}
+
+/* Individual card styling */
+.card {
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 15px;
+}
+
+/* Card title styling */
+.card h1 {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+/* Card paragraph styling */
+.card p {
+  margin: 10px
+}
+
+/* Button and arrow container styling */
+.button-arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;    /* Push to the bottom of the card */
+}
+
+/* Individual button styling */
+.card button {
+  background-color: #9a6363;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Arrow styling */
+.arrow-right {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-right svg {
+  width: 35px; 
+  height: 35px; 
+
+}
+
+/* Optional: Add hover effect for buttons */
+.card button:hover {
+  background-color: #e35656;
+}

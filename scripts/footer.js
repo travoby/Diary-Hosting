@@ -4,4 +4,4 @@ fetch("../layout/footer.html")
 .then((data) => {
   footer.innerHTML = data;
 })
-.catch((error) => console.error("Error fetching included file:", error));
+.catch((error) => console.error("Error fetching included file:", error)); 
